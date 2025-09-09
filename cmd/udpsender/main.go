@@ -26,7 +26,7 @@ func main() {
 		if err != nil {
 			log.Fatal(err)
 		}
-		_, err := conn.Write([]byte(text))
+		_, err = conn.Write([]byte(text))
 		if err != nil {
 			log.Fatal(err)
 		}
