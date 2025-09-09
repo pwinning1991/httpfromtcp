@@ -13,11 +13,12 @@ func main() {
 	if err != nil {
 		log.Fatal(err)
 	}
-	conn, err := net.ListenUDP("udp", addr)
+	conn, err := net.DialUDP("udp", nil, addr)
 	if err != nil {
 		log.Fatal(err)
 	}
 	defer conn.Close()
+	fmt.Printf("Sending to %s. Type your message and press Enter to send. Press Ctrl+c to exit\n", addr)
 	reader := bufio.NewReader(os.Stdin)
 	for {
 		fmt.Println(">")
@@ -25,7 +26,11 @@ func main() {
 		if err != nil {
 			log.Fatal(err)
 		}
-		conn.Write([]byte(text))
+		_, err := conn.Write([]byte(text))
+		if err != nil {
+			log.Fatal(err)
+		}
+		fmt.Printf("Message sent: %s\n", text)
 
 	}
 }
