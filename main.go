@@ -19,12 +19,12 @@ func main() {
 		if err != nil {
 			log.Fatal(err)
 		}
-		fmt.Prinln("Accpeted connection from", conn.RemonteAddr())
+		fmt.Println("Accpeted connection from", conn.RemoteAddr())
 		linesChan := getLinesChannel(conn)
 		for line := range linesChan {
 			fmt.Println("read:", line)
 		}
-		fmt.Prinln("Connection to ", conn.RemoteAddr(), "closed")
+		fmt.Println("Connection to ", conn.RemoteAddr(), "closed")
 	}
 
 }
