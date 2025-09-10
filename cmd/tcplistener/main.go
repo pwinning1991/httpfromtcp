@@ -22,7 +22,7 @@ func main() {
 		if err != nil {
 			log.Fatal(err)
 		}
-		fmt.Printf("Request line:\n- Method %s\n- Target: %s\n- Version: %s\n", requestLine.RequestLine.Method, requestLine.RequestLine.RequestTarget, requestLine.RequestLine.HttpVersion)
+		fmt.Printf("Request line:\n- Method: %s\n- Target: %s\n- Version: %s\n", requestLine.RequestLine.Method, requestLine.RequestLine.RequestTarget, requestLine.RequestLine.HttpVersion)
 	}
 
 }
